@@ -1,0 +1,17 @@
+.link{
+    color: white;
+    font-size: 24px;
+    margin: 20px;
+    text-decoration: none;
+    font-family: 'Bebas';
+}
+
+.title{
+    color: white;
+    font-size: 28px;
+    color: red;
+    text-decoration: none;
+    font-family: 'Bebas';
+    background-color: rgb(34, 31, 31);
+}
+

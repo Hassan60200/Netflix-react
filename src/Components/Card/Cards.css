@@ -1,0 +1,16 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 100px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.cardsType{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+}
