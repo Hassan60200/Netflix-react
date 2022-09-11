@@ -7,7 +7,7 @@ const Cards = ({name, img, rating}) => {
     return (
         <Card>
             <img
-                src={img}
+                src={`https://image.tmdb.org/t/p/w500/${img}`}
                 alt={name}
             />
             <CardContent>

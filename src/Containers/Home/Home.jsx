@@ -51,7 +51,7 @@ const Home = () => {
     return (
         <div className="cards">
             {data.map((movie) =>
-                <Cards key={movie.id} id={movie.id} name={movie.title} rating={movie.vote_average} img={movie.backdrop_path}/>
+                <Cards key={movie.id} id={movie.id} name={movie.title} rating={movie.vote_average} img={movie.poster_path}/>
             )}
         </div>
     );
