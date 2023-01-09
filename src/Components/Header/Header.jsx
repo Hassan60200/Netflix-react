@@ -9,11 +9,11 @@ const Header = () => {
         <header>
             <AppBar className="AppBar" >
                 <Toolbar className="title">
-                    Netflix
+                    DerkaFlix
                     <NavLink className="link" to="/">Accueil</NavLink>
-                    <NavLink className="link" to="/types">Films</NavLink>
-                    <NavLink className="link" to="/favoris">Séries</NavLink>
-                    <NavLink className="link" to="/contact">Connexion</NavLink>
+                    <NavLink className="link" to="/films">Films</NavLink>
+                    <NavLink className="link" to="/series">Séries</NavLink>
+                    <NavLink className="link" to="/connexion">Connexion</NavLink>
                 </Toolbar>
             </AppBar>
         </header>

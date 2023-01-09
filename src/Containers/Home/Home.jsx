@@ -13,7 +13,7 @@ const Home = () => {
 
     const fetchMovies = async () => {
         try {
-            await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=e1a35f45338000206c02e4a5cb8118f5").then((res) => {
+            await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr").then((res) => {
                 setData(res.data.results)
                 console.log(res.data.results)
                 setLoading(false);

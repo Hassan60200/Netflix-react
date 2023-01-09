@@ -1,25 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {CardContent, Typography} from "@material-ui/core";
-import Card from "@material-ui/core/Card";
-import { Link } from "react-router-dom";
+import Card from "@material-ui/core/Card"
+import {Rating} from "@mui/material";
+import {Link} from "react-router-dom";
 
-const Cards = ({name, img, rating}) => {
+const Cards = ({name, img, rating, id}) => {
+
+    const roundRating = Math.round(rating) / 2;
+
     return (
-        <Card>
+        <Card title={name}>
             <img
                 src={`https://image.tmdb.org/t/p/w500/${img}`}
+                style={{width: '100%', height: '80%'}}
                 alt={name}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="h2" style={{textTransform: 'capitalize'}}>
-                      {name}
+                <Link to={`/movie/${id}`}>
+                    <Typography gutterBottom variant="h5" component="h2"
+                                style={{textTransform: 'capitalize', textAlign: 'center'}}>
+                        {name.length < 20 ? name : name.slice(0, 20)}
+                    </Typography>
+                </Link>
+                <Typography style={{textAlign: 'center'}} title={rating}>
+                    <Rating name="round-rating" value={roundRating} precision={0.5} readOnly />
                 </Typography>
-                <Typography>
-                      {rating}
-                </Typography>
-               {/* <Link to={`/pokemon/${name}`}>
-                    <img src="https://img.icons8.com/color/50/000000/pokeball-2.png" alt="lien vers le pokemon"/>
-                </Link>*/}
             </CardContent>
         </Card>
     );
