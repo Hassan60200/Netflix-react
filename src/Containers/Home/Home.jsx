@@ -41,20 +41,25 @@ const Home = () => {
         </div>
     }
 
-    if (loading) {
-        return <Box sx={{display: 'flex'}}>
-            <CircularProgress/>
-        </Box>;
-    }
-
-
     return (
-        <div className="cards">
-            {data.map((movie) =>
-                <Cards key={movie.id} id={movie.id} name={movie.title} rating={movie.vote_average} img={movie.poster_path}/>
-            )}
-        </div>
-    );
+            <div className="cards">
+                {
+                    loading ?
+                        <Box style={{
+                            display:"flex",
+                            justifyContent:"center"
+                        }}>
+                            <CircularProgress/>
+                        </Box>
+                        :
+                        data.map(
+                            (movie) =>
+                            <Cards key={movie.id} id={movie.id} name={movie.title} rating={movie.vote_average}
+                                   img={movie.poster_path}/>
+                        )
+                }
+            </div>
+    )
 };
 
 export default Home;

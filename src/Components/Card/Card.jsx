@@ -16,14 +16,16 @@ const Cards = ({name, img, rating, id}) => {
                 alt={name}
             />
             <CardContent>
-                <Link to={`/movie/${id}`}>
+                <Link to={`/movie/${id}`} style={{
+                    textDecoration: "none", color: "black"
+                }}>
                     <Typography gutterBottom variant="h5" component="h2"
                                 style={{textTransform: 'capitalize', textAlign: 'center'}}>
                         {name.length < 20 ? name : name.slice(0, 20)}
                     </Typography>
                 </Link>
                 <Typography style={{textAlign: 'center'}} title={rating}>
-                    <Rating name="round-rating" value={roundRating} precision={0.5} readOnly />
+                    <Rating name="round-rating" value={roundRating} precision={0.5} readOnly/>
                 </Typography>
             </CardContent>
         </Card>

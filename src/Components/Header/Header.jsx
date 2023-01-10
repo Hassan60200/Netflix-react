@@ -14,6 +14,7 @@ const Header = () => {
                     <NavLink className="link" to="/films">Films</NavLink>
                     <NavLink className="link" to="/series">Séries</NavLink>
                     <NavLink className="link" to="/connexion">Connexion</NavLink>
+                    <NavLink className="link" to="/recherches-avancees">Recherches avancées</NavLink>
                 </Toolbar>
             </AppBar>
         </header>
