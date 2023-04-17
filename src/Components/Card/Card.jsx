@@ -9,23 +9,20 @@ const Cards = ({name, img, rating, id}) => {
     const roundRating = Math.round(rating) / 2;
 
     return (
-        <Card title={name}>
+        <Card className="cardContainer" title={name}>
             <img
+                className="cardImg"
                 src={`https://image.tmdb.org/t/p/w500/${img}`}
-                style={{width: '100%', height: '80%'}}
                 alt={name}
             />
-            <CardContent>
-                <Link to={`/movie/${id}`} style={{
-                    textDecoration: "none", color: "black"
-                }}>
-                    <Typography gutterBottom variant="h5" component="h2"
-                                style={{textTransform: 'capitalize', textAlign: 'center'}}>
+            <CardContent className="cardContent">
+                <Link to={`/movie/${id}`} style={{ textDecoration: "none", color: "black" }}>
+                    <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
                         {name.length < 20 ? name : name.slice(0, 20)}
                     </Typography>
                 </Link>
-                <Typography style={{textAlign: 'center'}} title={rating}>
-                    <Rating name="round-rating" value={roundRating} precision={0.5} readOnly/>
+                <Typography className="cardRating" title={rating}>
+                    <Rating name="round-rating" value={roundRating} precision={0.5} readOnly />
                 </Typography>
             </CardContent>
         </Card>

@@ -2,7 +2,6 @@ import React, {useMemo} from 'react';
 import Card from "@material-ui/core/Card"
 
 const DetailsView = ({details}) => {
-    console.log(details)
     const genderMovies = details.genres;
     const releaseDate = details.release_date;
 

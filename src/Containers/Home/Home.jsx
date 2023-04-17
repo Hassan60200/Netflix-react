@@ -14,6 +14,7 @@ const Home = () => {
     const fetchMovies = async () => {
         try {
             await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr").then((res) => {
+                console.log(res.data.results)
                 setData(res.data.results)
                 setLoading(false);
             });
@@ -41,23 +42,26 @@ const Home = () => {
     }
 
     return (
+        <div>
+            <h2 className="titlePopular">Films populaires</h2>
             <div className="cards">
                 {
                     loading ?
                         <Box style={{
-                            display:"flex",
-                            justifyContent:"center"
+                            display: "flex",
+                            justifyContent: "center"
                         }}>
                             <CircularProgress/>
                         </Box>
                         :
                         data.map(
                             (movie) =>
-                            <Cards key={movie.id} id={movie.id} name={movie.title} rating={movie.vote_average}
-                                   img={movie.poster_path}/>
+                                <Cards key={movie.id} id={movie.id} name={movie.title} rating={movie.vote_average}
+                                       img={movie.poster_path}/>
                         )
                 }
             </div>
+        </div>
     )
 };
 
