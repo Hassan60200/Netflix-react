@@ -1,0 +1,65 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    min-height: 100vh;
+    background: linear-gradient(#133e6e, #d29200);
+}
+
+.cardContainer {
+    background-color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.titleMovie {
+    color: #333;
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 36px;
+}
+
+.cardContainer img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.listGender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    list-style-type: none;
+}
+
+.genderMovie {
+    border: 2px solid #333;
+    border-radius: 10px;
+    font-weight: 800;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+h6 {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 24px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
