@@ -11,8 +11,8 @@ const Header = () => {
                 <Toolbar className="title">
                     DerkaFlix
                     <NavLink className="link" to="/">Accueil</NavLink>
-                    <NavLink className="link" to="/films">Films</NavLink>
-                    <NavLink className="link" to="/series">Séries</NavLink>
+                    <NavLink className="link" to="/movies">Films</NavLink>
+                    <NavLink className="link" to="/tv-show">Séries</NavLink>
                     <NavLink className="link" to="/connexion">Connexion</NavLink>
                     <NavLink className="link" to="/recherches-avancees">Recherches avancées</NavLink>
                 </Toolbar>
