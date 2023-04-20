@@ -4,6 +4,7 @@ import Header from "./Components/Header/Header";
 import Details from "./Containers/DetailsView/details";
 import DetailsTvShow from "./Containers/DetailsView/detailsTvShow";
 import TvShow from "./Containers/TvShow/tvShow";
+import MovieSearch from "./Containers/MovieSearch/movieSearch";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/movies" element={<MovieSearch/>}/>
                 <Route path="/movie/:id"  element={<Details/>}/>
                 <Route path="/tv-show/"  element={<TvShow/>}/>
                 <Route path="/tv/:id"  element={<DetailsTvShow/>}/>

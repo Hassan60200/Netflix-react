@@ -14,7 +14,6 @@ const Home = () => {
     const fetchMovies = async () => {
         try {
             await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr").then((res) => {
-                console.log(res.data.results)
                 setData(res.data.results)
                 setLoading(false);
             });

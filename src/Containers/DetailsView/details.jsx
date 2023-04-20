@@ -30,6 +30,8 @@ const Details = () => {
 
     return (
         <div>
+            {loading && <p>Loading...</p>}
+            {error && <p>An error occurred</p>}
             <DetailsView details={details} />
         </div>
     );

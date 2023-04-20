@@ -4,9 +4,6 @@ import DetailsView from "../../Components/Details/DetailsView";
 import "../../Components/Details/DetailsView.css";
 import axios from "axios";
 
-const apiKey = process.env.API_KEY;
-console.log(apiKey)
-
 const DetailsTvShow = () => {
 
     const {id} = useParams();
@@ -18,7 +15,7 @@ const DetailsTvShow = () => {
 
     const fetchDetailsData = async () => {
         try {
-             await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=fr`).then((res) => {
+             await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr`).then((res) => {
                  setDetailsTvShow(res?.data);
                  setLoading(false);
              })
