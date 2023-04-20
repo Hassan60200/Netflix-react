@@ -5,11 +5,14 @@ import {Box, CircularProgress} from "@material-ui/core";
 import Cards from "../../Components/Card/Card";
 import "../../Components/Card/Cards.css";
 import "../../Components/Header/Header.css";
+import Card from "../../Components/Card/Card";
 
 const Home = () => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState({});
+    const [tvShow, setTvShow] = useState({});
+
 
     const fetchMovies = async () => {
         try {
@@ -24,9 +27,22 @@ const Home = () => {
         }
     };
 
+    const fetchTvShow = async () => {
+        try {
+            await axios.get("https://api.themoviedb.org/3/tv/top_rated?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr").then((res) => {
+                setTvShow(res.data.results)
+                setLoading(false);
+            });
+
+        } catch (err) {
+            setError(true);
+            throw err;
+        }
+    };
+
     useEffect(() => {
         fetchMovies();
-
+        fetchTvShow();
     }, []);
 
     if (error) {
@@ -57,6 +73,24 @@ const Home = () => {
                             (movie) =>
                                 <Cards key={movie.id} id={movie.id} name={movie.title} rating={movie.vote_average}
                                        img={movie.poster_path} type="movie"/>
+                        )
+                }
+            </div>
+
+            <h2 className="titlePopular">Séries populaires</h2>
+            <div className="cards">
+                {
+                    loading ?
+                        <Box style={{
+                            display: "flex",
+                            justifyContent: "center"
+                        }}>
+                            <CircularProgress/>
+                        </Box>
+                        :
+                        tvShow.map(
+                            (serie) =>
+                                <Card key={serie.id} id={serie.id} name={serie.name} img={serie.poster_path} type="tv"/>
                         )
                 }
             </div>

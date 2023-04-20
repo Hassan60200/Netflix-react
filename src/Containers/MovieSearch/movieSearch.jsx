@@ -25,13 +25,15 @@ const MovieSearch = () => {
         }
     };
 
+    console.log(movies.title)
+
 
     return (
         <div className="movieSearch">
-            <SearchBar handleSearch={(searchValue) => handleSearch(searchValue)} />
+            <SearchBar type="film" handleSearch={(searchValue) => handleSearch(searchValue)} />
             {loading && <p>Loading...</p>}
             {error && <p>An error occurred</p>}
-            {movies.length > 0 && <SearchResult type="movie" results={movies} />}
+            {movies.length > 0 && <SearchResult type="movie" title={true} results={movies} />}
         </div>
     );
 };

@@ -5,7 +5,7 @@ import {CardContent, Typography} from "@material-ui/core";
 import './searchResult.css';
 import {Link} from "react-router-dom";
 
-const SearchResult = ({results, type}) => {
+const SearchResult = ({results, type, title}) => {
 
     return (
         <div className="containerResult">
@@ -23,7 +23,7 @@ const SearchResult = ({results, type}) => {
                                 <CardContent>
                                     <Link to={`/${type}/${movie.id}`} style={{ textDecoration: "none", color: "black" }}>
                                         <Typography variant="h5" component="h2">
-                                            {movie.title}
+                                            {title ? movie.title : movie.name}
                                         </Typography>
                                     </Link>
 

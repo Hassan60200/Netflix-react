@@ -1,33 +1,30 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React, { useState} from 'react';
 import {Link} from "react-router-dom";
-import {Box, CircularProgress} from "@material-ui/core";
-import "../../Components/Card/Cards.css";
-import "../../Components/Header/Header.css";
-import Card from "../../Components/Card/Card";
+import SearchBar from "../../Components/SeachBar/searchBar";
+import SearchResult from "../../Components/MoviesList/searchResult";
+import axios from "axios";
 
 const Home = () => {
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const [tvShow, setTvShow] = useState({});
+    const [tvShow, setTvShow] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    const fetchMovies = async () => {
+    const handleSearch = async (searchValue) => {
         try {
-            await axios.get("https://api.themoviedb.org/3/tv/top_rated?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr").then((res) => {
-                setTvShow(res.data.results)
-                setLoading(false);
-            });
-
+            setLoading(true);
+            await axios
+                .get(
+                    `https://api.themoviedb.org/3/search/tv?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr&query=${searchValue}`
+                )
+                .then((res) => {
+                    setTvShow(res.data.results);
+                    setLoading(false);
+                });
         } catch (err) {
             setError(true);
             throw err;
         }
     };
-
-    useEffect(() => {
-        fetchMovies();
-
-    }, []);
 
     if (error) {
         return <div style={{margin: '100px'}}>
@@ -40,25 +37,13 @@ const Home = () => {
         </div>
     }
 
+    console.log(tvShow.name);
     return (
-        <div>
-            <h2 className="titlePopular">Séries populaires</h2>
-            <div className="cards">
-                {
-                    loading ?
-                        <Box style={{
-                            display: "flex",
-                            justifyContent: "center"
-                        }}>
-                            <CircularProgress/>
-                        </Box>
-                        :
-                        tvShow.map(
-                            (serie) =>
-                                <Card key={serie.id} id={serie.id} name={serie.name} img={serie.poster_path} type="tv"/>
-                        )
-                }
-            </div>
+        <div className="movieSearch">
+            <SearchBar type="série" handleSearch={(searchValue) => handleSearch(searchValue)} />
+            {loading && <p>Loading...</p>}
+            {error && <p>An error occurred</p>}
+            {tvShow.length > 0 && <SearchResult type="movie" title={false} results={tvShow} />}
         </div>
     )
 };
