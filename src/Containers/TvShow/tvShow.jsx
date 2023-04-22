@@ -37,13 +37,12 @@ const Home = () => {
         </div>
     }
 
-    console.log(tvShow.name);
     return (
         <div className="movieSearch">
             <SearchBar type="série" handleSearch={(searchValue) => handleSearch(searchValue)} />
             {loading && <p>Loading...</p>}
             {error && <p>An error occurred</p>}
-            {tvShow.length > 0 && <SearchResult type="movie" title={false} results={tvShow} />}
+            {tvShow.length > 0 && <SearchResult type="tv" title={false} results={tvShow} />}
         </div>
     )
 };

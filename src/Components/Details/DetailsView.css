@@ -67,3 +67,7 @@ p {
 .hideData{
     display: none;
 }
+
+.listVideos{
+    text-align: center;
+}

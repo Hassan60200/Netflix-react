@@ -25,9 +25,6 @@ const MovieSearch = () => {
         }
     };
 
-    console.log(movies.title)
-
-
     return (
         <div className="movieSearch">
             <SearchBar type="film" handleSearch={(searchValue) => handleSearch(searchValue)} />

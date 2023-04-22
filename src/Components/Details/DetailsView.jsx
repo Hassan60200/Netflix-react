@@ -2,15 +2,16 @@ import React, {useMemo} from 'react';
 import Card from "@material-ui/core/Card"
 import {Accordion, AccordionDetails, AccordionSummary} from "@mui/material";
 import {Typography} from "@material-ui/core";
+import VideoPlayer from "../Video/video";
 
 function ExpandMoreIcon() {
     return null;
 }
 
-const DetailsView = ({details}) => {
-    console.log(details)
+const DetailsView = ({details, video}) => {
     const genderMovies = details.genres;
     const seasons = details.seasons;
+    const videos = video.results;
     const dates = [
         {date: details.release_date, label: "Date de sortie"},
         {date: details.first_air_date, label: "Première diffusion"},
@@ -56,6 +57,32 @@ const DetailsView = ({details}) => {
             )
         }
     };
+    const renderVideos = (videos) => {
+        if (videos) {
+            return videos.map((youtube) => (
+                <VideoPlayer key={youtube.id} videoKey={youtube.key}/>
+            ))
+        }
+    }
+
+    const CountSeasonAndEpisode = ({details}) => {
+        const {number_of_seasons, number_of_episodes} = details;
+
+        if (!number_of_seasons && !number_of_episodes) {
+            return null;
+        }
+
+        return (
+            <ul className="listGender">
+                {number_of_seasons && (
+                    <li className="genderMovie">Nombre de saison : {number_of_seasons}</li>
+                )}
+                {number_of_episodes && (
+                    <li className="genderMovie">Nombre d'épisode :{number_of_episodes}</li>
+                )}
+            </ul>
+        );
+    };
 
 
     // Memoize the card component to prevent unnecessary renders
@@ -71,10 +98,8 @@ const DetailsView = ({details}) => {
                      alt={details.title}
                 />
                 {formattedDates}
-                <ul className="listGender">
-                    <li className="genderMovie">Nombre de saison : {details.number_of_seasons}</li>
-                    <li className="genderMovie">Nombre d'épisode :{details.number_of_episodes}</li>
-                </ul>
+
+                {CountSeasonAndEpisode}
                 {genderMovies && genderMovies.length > 0 ? (
                     <ul className="listGender">
                         {genderMovies.map((genre) => (
@@ -92,6 +117,9 @@ const DetailsView = ({details}) => {
                 <section className="detailsSeasonsAccordion">
                     {renderSeasonsAccordion(seasons)}
                 </section>
+              {/*  <section className="listVideos">
+                    {renderVideos(videos)}
+                </section>*/}
             </Card>
         );
     }, [details.title, details.backdrop_path, formattedDates, details.overview, renderSeasonsAccordion, genderMovies, details.number_of_seasons, details.name, details.number_of_episodes]);
