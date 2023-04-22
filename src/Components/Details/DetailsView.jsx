@@ -64,7 +64,7 @@ const DetailsView = ({details, video}) => {
             ))
         }
     }
-
+    console.log(videos)
     const CountSeasonAndEpisode = ({details}) => {
         const {number_of_seasons, number_of_episodes} = details;
 
@@ -117,12 +117,12 @@ const DetailsView = ({details, video}) => {
                 <section className="detailsSeasonsAccordion">
                     {renderSeasonsAccordion(seasons)}
                 </section>
-              {/*  <section className="listVideos">
+                <section className="listVideos">
                     {renderVideos(videos)}
-                </section>*/}
+                </section>
             </Card>
         );
-    }, [details.title, details.backdrop_path, formattedDates, details.overview, renderSeasonsAccordion, genderMovies, details.number_of_seasons, details.name, details.number_of_episodes]);
+    }, [details.title, details.backdrop_path, formattedDates, details.overview, renderSeasonsAccordion, renderVideos, genderMovies, details.number_of_seasons, details.name, details.number_of_episodes]);
 
     return (
         <div className="details">

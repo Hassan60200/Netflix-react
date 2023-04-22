@@ -11,7 +11,19 @@ const DetailsTvShow = () => {
     const [detailsTvShow, setDetailsTvShow] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [video, setVideo] = useState({});
 
+    const fetchVideo = async () => {
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr`);
+            const videoMovie = await response.json();
+            setVideo(videoMovie)
+            setLoading(false)
+        } catch (err) {
+            setError(true)
+            throw err;
+        }
+    }
 
     const fetchDetailsData = async () => {
         try {
@@ -26,6 +38,7 @@ const DetailsTvShow = () => {
     }
     useEffect(() => {
         fetchDetailsData();
+        fetchVideo();
     }, []);
 
     if (error) {
@@ -38,7 +51,7 @@ const DetailsTvShow = () => {
 
     return (
         <div>
-            <DetailsView details={detailsTvShow} />
+            <DetailsView details={detailsTvShow} video={video} />
         </div>
     );
 };
