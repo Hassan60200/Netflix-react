@@ -13,8 +13,8 @@ const Header = () => {
                     <NavLink className="link" to="/">Accueil</NavLink>
                     <NavLink className="link" to="/movies">Films</NavLink>
                     <NavLink className="link" to="/tv-show">Séries</NavLink>
-                    <NavLink className="link" to="/connexion">Connexion</NavLink>
-                    <NavLink className="link" to="/recherches-avancees">Recherches avancées</NavLink>
+                    <NavLink className="link" to="/login">Connexion</NavLink>
+                    <NavLink className="link" to="/register">Inscription</NavLink>
                 </Toolbar>
             </AppBar>
         </header>
