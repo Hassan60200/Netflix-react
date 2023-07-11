@@ -15,6 +15,13 @@ const Header = () => {
                     <NavLink className="link" to="/tv-show">Séries</NavLink>
                     <NavLink className="link" to="/login">Connexion</NavLink>
                     <NavLink className="link" to="/register">Inscription</NavLink>
+                    <input
+                        className="searchInput"
+                        type="text"
+                        placeholder=""
+                        value=""
+                    />
+                    <button className="searchButton">X</button>
                 </Toolbar>
             </AppBar>
         </header>

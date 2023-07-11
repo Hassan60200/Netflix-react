@@ -13,7 +13,7 @@ const MovieSearch = () => {
             setLoading(true);
             await axios
                 .get(
-                    `https://api.themoviedb.org/3/search/movie?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr&query=${searchValue}`
+                    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr&query=${searchValue}`
                 )
                 .then((res) => {
                     setMovies(res.data.results);

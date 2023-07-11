@@ -15,7 +15,7 @@ const Details = () => {
 
     const fetchDetailsData = async () => {
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr`);
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr`);
             const data = await response.json();
             setDetails(data)
             setLoading(false)

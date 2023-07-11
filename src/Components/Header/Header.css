@@ -1,5 +1,5 @@
 .link{
-    color: white;
+    color: #F5F5F1;
     font-size: 24px;
     margin: 20px;
     text-decoration: none;
@@ -7,11 +7,33 @@
 }
 
 .title{
-    color: white;
     font-size: 28px;
     color: red;
     text-decoration: none;
     font-family: 'Bebas';
-    background-color: rgb(34, 31, 31);
+    background-color: #141414;
 }
 
+.searchInput {
+    width: 20%;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.searchButton {
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.searchButton:hover {
+    background-color: #1ad312;
+}

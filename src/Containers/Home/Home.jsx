@@ -14,9 +14,10 @@ const Home = () => {
     const [tvShow, setTvShow] = useState({});
 
 
+
     const fetchMovies = async () => {
         try {
-            await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr").then((res) => {
+            await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr`).then((res) => {
                 setData(res.data.results)
                 setLoading(false);
             });

@@ -15,7 +15,7 @@ const DetailsTvShow = () => {
 
     const fetchVideo = async () => {
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr`);
+            const response = await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr`);
             const videoMovie = await response.json();
             setVideo(videoMovie)
             setLoading(false)
@@ -27,7 +27,7 @@ const DetailsTvShow = () => {
 
     const fetchDetailsData = async () => {
         try {
-             await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=e1a35f45338000206c02e4a5cb8118f5&language=fr`).then((res) => {
+             await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr`).then((res) => {
                  setDetailsTvShow(res?.data);
                  setLoading(false);
              })
