@@ -14,8 +14,14 @@
     background-color: #141414;
 }
 
-.searchInput {
+.contentSearch{
     width: 20%;
+    display: flex;
+    justify-content: end;
+}
+
+.searchInput {
+    width: 70%;
     font-size: 1.5rem;
     padding: 1rem;
     border: none;

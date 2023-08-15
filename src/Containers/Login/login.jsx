@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./login.css";
+import FacebookLogin from "../../Components/FacebookLogin/facebookLogin";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -35,6 +36,7 @@ const LoginPage = () => {
                     />
                 </div>
                 <button type="submit">Se connecter</button>
+                <FacebookLogin />
             </form>
         </div>
     );

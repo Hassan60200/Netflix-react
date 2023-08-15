@@ -1,13 +1,12 @@
 import React from 'react';
-import { AppBar, Toolbar } from "@material-ui/core";
-
+import {AppBar, Toolbar} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
 
 
 const Header = () => {
     return (
         <header>
-            <AppBar className="AppBar" >
+            <AppBar className="AppBar">
                 <Toolbar className="title">
                     DerkaFlix
                     <NavLink className="link" to="/">Accueil</NavLink>
@@ -15,13 +14,15 @@ const Header = () => {
                     <NavLink className="link" to="/tv-show">Séries</NavLink>
                     <NavLink className="link" to="/login">Connexion</NavLink>
                     <NavLink className="link" to="/register">Inscription</NavLink>
-                    <input
-                        className="searchInput"
-                        type="text"
-                        placeholder=""
-                        value=""
-                    />
-                    <button className="searchButton">X</button>
+                 {/*   <div className="contentSearch link">
+                        <input
+                            className="searchInput"
+                            type="text"
+                            placeholder=""
+                            value=""
+                        />
+                        <button className="searchButton">X</button>
+                    </div>*/}
                 </Toolbar>
             </AppBar>
         </header>
