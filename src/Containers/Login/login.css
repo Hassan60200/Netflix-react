@@ -45,3 +45,7 @@ button {
 button:hover {
     background-color: #005fcc;
 }
+
+.fb-login-button{
+    margin-top:15px;
+}

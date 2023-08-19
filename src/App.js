@@ -8,21 +8,23 @@ import MovieSearch from "./Containers/MovieSearch/movieSearch";
 import LoginPage from "./Containers/Login/login";
 import Register from "./Containers/Register/register";
 
+
 function App() {
 
     return (
-        <div className="App">
-            <Header />
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/movies" element={<MovieSearch/>}/>
-                <Route path="/movie/:id"  element={<Details/>}/>
-                <Route path="/tv-show/"  element={<TvShow/>}/>
-                <Route path="/tv/:id"  element={<DetailsTvShow/>}/>
-                <Route path="/login"  element={<LoginPage/>}/>
-                <Route path="/register"  element={<Register/>}/>
-            </Routes>
-        </div>
+            <div className="App">
+                <Header/>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/movies" element={<MovieSearch/>}/>
+                    <Route path="/movie/:id" element={<Details/>}/>
+                    <Route path="/tv-show/" element={<TvShow/>}/>
+                    <Route path="/tv/:id" element={<DetailsTvShow/>}/>
+                    <Route path="/login" element={<LoginPage/>}/>
+                    <Route path="/register" element={<Register/>}/>
+                </Routes>
+            </div>
+
     );
 }
 
